@@ -1,0 +1,9 @@
+apple
+pears
+pears
+apple
+mango
+orange
+banana
+pears
+watermelon
