@@ -4,35 +4,42 @@
 add_numbers() {
 
   local input_file=$1
-  local total=0
-
-#to read last line if newline character not present
-  while read num || [[ -n "$num" ]]
-  do
-    total=$((total + num))
-  done < $input_file
-  
   local output_file=$2
+  > $output_file
 
-#write to file, skipping the newline character by echo
-  echo -n $total > $output_file
+  while IFS= read -r line; do
+      # convert line into array of numbers
+      local arr=($line)
+      local total=0
+
+      # iterate through each number in the array and add it to the sum
+      for num in "${arr[@]}"; do
+          total=$((total+num))
+      done
+
+  echo $total >> $output_file
+  done < ${input_file}
 }
 
 # function to multiply list of numbers
 multiply_numbers() {
 
   local input_file=$1
-  local product=1
-
-#to read last line if newline character not present
-  while read num || [[ -n "$num" ]]
-  do
-    echo "$num"
-    product=$((product * num))
-  done < $input_file
-
   local output_file=$2
-  echo -n $product > $output_file
+  > $output_file
+  
+  while IFS= read -r line; do
+      # convert line into array of numbers
+      local arr=($line)
+      local product=1
+
+      # iterate through each number in the array and add it to the sum
+      for num in "${arr[@]}"; do
+          product=$((product*num))
+      done
+
+  echo $product >> $output_file
+  done < ${input_file}
 
 }
 

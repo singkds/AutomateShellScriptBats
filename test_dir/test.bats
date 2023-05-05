@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 setup(){
-    load ../script_file.sh
+    load ../script.sh
 }
 
-# Test concatenate_strings function
+
 @test "function concatenate_strings to concatenate list of strings and write result to output file" {
     local input_file="./test_dir/test_input/testConcatenate/test.txt"
     local expected_output_file="./test_dir/test_input/testConcatenate/expectedOutput.txt"
@@ -16,10 +16,9 @@ setup(){
     [ -f "$actual_output_file" ]
     
     diff "$actual_output_file" "$expected_output_file"
-
 }
 
-# Test multiply_numbers function
+
 @test "function multiply_numbers to multiply numbers in a list and write result to output file" {
     local input_file="./test_dir/test_input/testMultiply/test.txt"
     local expected_output_file="./test_dir/test_input/testMultiply/expectedOutput.txt"
@@ -34,7 +33,6 @@ setup(){
 }
 
 
-# Test add_numbers function
 @test "function add numbers in a list and write result to output file" {
     local input_file="./test_dir/test_input/testAdd/test.txt"
     local expected_output_file="./test_dir/test_input/testAdd/expectedOutput.txt"
@@ -57,7 +55,7 @@ setup(){
 }
 
 # Test remove_duplicates function
-@test "funcation remove_duplicates function and write result to output file" {
+@test "remove_duplicates function" {
     local input_file="./test_dir/test_input/testRemDup/test.txt"
     local expected_output_file="./test_dir/test_input/testRemDup/expectedOutput.txt"
     local actual_output_file="./test_dir/test_input/testRemDup/actualOutput.txt"
@@ -71,8 +69,7 @@ setup(){
 }
 
 
-# Test replace_substring function
-@test "function Replace substring and write result to output file" {
+@test "Replace substring" {
     local input_file="./test_dir/test_input/testRepSubstr/test.txt"
     local expected_output_file="./test_dir/test_input/testRepSubstr/expectedOutput.txt"
     local actual_output_file="./test_dir/test_input/testRepSubstr/actualOutput.txt"
