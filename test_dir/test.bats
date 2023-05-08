@@ -5,12 +5,12 @@ setup(){
 }
 
 
-@test "function concatenate_strings to concatenate list of strings and write result to output file" {
-    local input_file="./test_dir/test_input/testConcatenate/test.txt"
-    local expected_output_file="./test_dir/test_input/testConcatenate/expectedOutput.txt"
-    local actual_output_file="./test_dir/test_input/testConcatenate/actualOutput.txt"
+@test "function add numbers in a list and write result to output file" {
+    local input_file="./test_dir/test_input/testAdd/test.txt"
+    local expected_output_file="./test_dir/test_input/testAdd/expectedOutput.txt"
+    local actual_output_file="./test_dir/test_input/testAdd/actualOutput.txt"
     
-    local result=$(concatenate_strings "$input_file" "$actual_output_file")
+    local result=$(add_numbers "$input_file" "$actual_output_file")
 
       # Check that the output file exists
     [ -f "$actual_output_file" ]
@@ -33,12 +33,12 @@ setup(){
 }
 
 
-@test "function add numbers in a list and write result to output file" {
-    local input_file="./test_dir/test_input/testAdd/test.txt"
-    local expected_output_file="./test_dir/test_input/testAdd/expectedOutput.txt"
-    local actual_output_file="./test_dir/test_input/testAdd/actualOutput.txt"
+@test "function concatenate_strings to concatenate list of strings and write result to output file" {
+    local input_file="./test_dir/test_input/testConcatenate/test.txt"
+    local expected_output_file="./test_dir/test_input/testConcatenate/expectedOutput.txt"
+    local actual_output_file="./test_dir/test_input/testConcatenate/actualOutput.txt"
     
-    local result=$(add_numbers "$input_file" "$actual_output_file")
+    local result=$(concatenate_strings "$input_file" "$actual_output_file")
 
       # Check that the output file exists
     [ -f "$actual_output_file" ]
@@ -46,13 +46,6 @@ setup(){
     diff "$actual_output_file" "$expected_output_file"
 }
 
-
-@test "should write logs" {
-    skip "Logs are not implemented yet"
-
-    local file_content=`cat ./test_dir/tmp/logs`
-    [ "$file_content" == 'I logged something' ]
-}
 
 # Test remove_duplicates function
 @test "remove_duplicates function" {
@@ -80,4 +73,12 @@ setup(){
     [ -f "$actual_output_file" ]
     
     diff "$actual_output_file" "$expected_output_file"
+}
+
+
+@test "should write logs" {
+    skip "Logs are not implemented yet"
+
+    local file_content=`cat ./test_dir/tmp/logs`
+    [ "$file_content" == 'I logged something' ]
 }
